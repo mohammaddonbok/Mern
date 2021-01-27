@@ -26,8 +26,14 @@ class Effect extends Card{
     }
     play( target ) {
         if( target instanceof Unit ) {
+            if(this.stat=="power"){
+                target.power+=this.magnitude;
+                console.log(target.power);
+            }
+            else{
             target.res+=this.magnitude;
             console.log(target.res);
+        }
         } else {
             throw new Error( "Target must be a unit!" );
         }
@@ -42,7 +48,8 @@ const card1=new Effect("Hard Algorithm",2,"increase target's resilience by 3","r
 const card2=new Effect("Unhandled Promise Rejection",1,"reduce target's resilience by 2","resilience",-2);
 const card3=new Effect("Pair Programming",3,"increase target's power by 2","power",2);
 
-card1.play(ninja1);
-card2.play(ninja1);
+// card1.play(ninja1);
+// card2.play(ninja1);
+// card3.play(ninja1);
+// ninja1.attack(ninja2);
 card3.play(ninja1);
-ninja1.attack(ninja2);
