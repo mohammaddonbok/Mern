@@ -1,9 +1,9 @@
-const { request } = require("express");
+// const { request } = require("express");
 const products = require("../models/product.models");
 
 
 module.exports.createProduct = (req, res) => {
-    const {title,price,description}= req.body;
+    const {title, price, description}= req.body;
     products.create({title,price,description})
         .then(newProduct => res.json({ newProduct }))
         .catch(err => res.json({ message: "Something went wrong", error: err }));
@@ -11,6 +11,12 @@ module.exports.createProduct = (req, res) => {
 
 module.exports.findAllProducts = (req, res) => {
     products.find()
-        .then(allProd => res.json({ allProd }))
+        .then(allProd => res.json( allProd ))
         .catch(err => res.json({ message: "Something went wrong", error: err }));
 };
+
+module.exports.getProduct = (request, response) => {
+    products.findOne({_id:request.params.id})
+        .then(product => response.json(product))
+        .catch(err => response.json(err))
+}

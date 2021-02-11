@@ -1,6 +1,6 @@
 import React ,{useState} from 'react'
 import axios from 'axios';
-const ProductForm = () => {
+export default  () => {
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
@@ -14,9 +14,9 @@ const ProductForm = () => {
         })
             .then(res=>console.log(res))
             .catch(err=>console.log(err))
-            setTitle("");
-            setPrice("");
-            setDescription("");
+            // setTitle("");
+            // setPrice("");
+            // setDescription("");
     }
     return (
         <form onSubmit={onSubmitHandler}>
@@ -37,4 +37,4 @@ const ProductForm = () => {
     )
 }
 
-export default ProductForm
+// export default ProductForm

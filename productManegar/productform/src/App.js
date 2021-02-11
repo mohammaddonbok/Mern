@@ -1,9 +1,17 @@
+import React, {useState} from 'react';
+import './App.css'
+import Main from './views/Main';
+import Detail from './views/Details'
+import { Router } from '@reach/router';
 
-import ProductForm from './components/ProductForm'
 function App() {
+  
   return (
     <div className="App">
-      <ProductForm />
+      <Router>
+        <Main path="newProduct/"/>
+        <Detail path="api/product/:id"/>
+      </Router>
     </div>
   );
 }

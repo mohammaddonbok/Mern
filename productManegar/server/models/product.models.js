@@ -14,7 +14,9 @@ const ProductSchema = new mongoose.Schema({
         required:[true,"You must insert the description"],
         minlength:[5,"description must be at least 5 characters long"]
     }
-});
+},
+{timestamps: true}
+);
 
 const products = mongoose.model("products", ProductSchema);
 
