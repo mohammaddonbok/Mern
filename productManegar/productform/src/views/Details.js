@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import { Link } from '@reach/router';
 export default props => {
     const [detail, setDetail] = useState({})
     useEffect(() => {
@@ -12,6 +13,9 @@ export default props => {
     }, [])
     return (
         <div>
+            <Link to={"/api/product/" + detail._id + "/edit"}>
+                Edit
+            </Link>
             <p>{detail.title}</p><br/>
             <p>{detail.price}</p><br/>
             <p>{detail.description}</p>

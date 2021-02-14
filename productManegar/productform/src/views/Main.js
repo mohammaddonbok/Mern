@@ -11,12 +11,15 @@ export default () => {
                 setProduct(res.data);
                 setLoaded(true);
             });
-    }, [])
+    }, []);
+    const removeFromDom = proId => {
+        setProduct(product.filter(pro => pro._id != proId));
+    }
     return (
         <div>
             <ProductForm />
             <hr />
-            {loaded && <PoductsList product={product}  />}
+            {loaded && <PoductsList product={product} removeFromDom={removeFromDom} />}
         </div>
     )
 }

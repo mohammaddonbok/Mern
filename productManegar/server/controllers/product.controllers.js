@@ -19,4 +19,15 @@ module.exports.getProduct = (request, response) => {
     products.findOne({_id:request.params.id})
         .then(product => response.json(product))
         .catch(err => response.json(err))
+};
+module.exports.updateProduct = (request, response) => {
+    console.log("lolololololol");
+    products.findOneAndUpdate({_id: request.params.id}, request.body, {new:true})
+        .then(updatedProduct => response.json(updatedProduct))
+        .catch(err => response.json(err))
+};
+module.exports.deletePerson = (request, response) => {
+    products.deleteOne({ _id: request.params.id })
+        .then(deleteConfirmation => response.json(deleteConfirmation))
+        .catch(err => response.json(err))
 }
